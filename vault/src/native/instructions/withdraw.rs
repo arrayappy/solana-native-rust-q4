@@ -9,7 +9,7 @@ pub fn process(accounts: &[AccountInfo<'_>], amount: u64) -> ProgramResult {
       return Err(ProgramError::NotEnoughAccountKeys);
   };
 
-  let (pda, bump) = Pubkey::try_find_program_address(&[signer.key.as_ref()], &crate::ID)
+  let (pda, bump) = Pubkey::try_find_program_address(&[signer.key.as_ref()], &super::super::ID)
       .ok_or(ProgramError::InvalidSeeds)?;
 
   assert_eq!(&pda, vault.key);
