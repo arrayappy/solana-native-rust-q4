@@ -3,7 +3,13 @@
 #[cfg(test)]
 mod tests;
 
-#[cfg(all(target_os = "solana", feature = "native"))]
+
+#[cfg(feature = "optimized")]
+mod optimized;
+#[cfg(feature = "optimized")]
+use optimized::*;
+
+#[cfg(feature = "native")]
 mod native;
-#[cfg(all(target_os = "solana", feature = "native"))]
+#[cfg(feature = "native")]
 use native::*;

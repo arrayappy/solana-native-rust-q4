@@ -784,6 +784,21 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "835a3dc7d1ec9e75e2b5fb4ba75396837112d2060b03f7d43bc1897c7f7211da"
 
 [[package]]
+name = "five8_const"
+version = "0.1.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "72b4f62f0f8ca357f93ae90c8c2dd1041a1f665fde2f889ea9b1787903829015"
+dependencies = [
+ "five8_core",
+]
+
+[[package]]
+name = "five8_core"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "94474d15a76982be62ca8a39570dccce148d98c238ebb7408b0a21b2c4bdddc4"
+
+[[package]]
 name = "flate2"
 version = "1.0.33"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1301,8 +1316,9 @@ dependencies = [
 
 [[package]]
 name = "mollusk-svm"
-version = "0.0.1"
-source = "git+https://github.com/buffalojoec/mollusk.git#4f127389b7432ceb0e7d724077c8c5196c37d1eb"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "199afcf537854f5e00c19488ec0d09842cdeb3d9e390789785e4dacae05ff4bd"
 dependencies = [
  "bincode",
  "solana-bpf-loader-program",
@@ -1311,6 +1327,7 @@ dependencies = [
  "solana-program-runtime",
  "solana-sdk",
  "solana-system-program",
+ "thiserror",
 ]
 
 [[package]]
@@ -1516,6 +1533,12 @@ name = "pin-utils"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8b870d8c151b6f2fb93e84a13146138f05d02ed11c7e7c54f8826aaaf7c9f184"
+
+[[package]]
+name = "pinocchio"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c9f716de2190437efa787dd7414f4bcea88d22c2f81bbeecabb7db6d9cc326bd"
 
 [[package]]
 name = "plain"
@@ -2101,6 +2124,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "solana-nostd-sha256"
+version = "0.1.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3b57f8add80dae972432e6d1483e3db221736c0957a6752994c53d695022ea35"
+dependencies = [
+ "sha2 0.10.8",
+]
+
+[[package]]
 name = "solana-poseidon"
 version = "2.0.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2592,7 +2624,10 @@ dependencies = [
 name = "vault"
 version = "0.1.0"
 dependencies = [
+ "five8_const",
  "mollusk-svm",
+ "pinocchio",
+ "solana-nostd-sha256",
  "solana-program",
  "solana-sdk",
 ]
