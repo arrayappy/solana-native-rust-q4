@@ -32,7 +32,7 @@ pub fn process_instruction(
 
     match EscrowInstruction::try_from(discriminator)? {
         EscrowInstruction::Make => make::process(accounts, data),
-        EscrowInstruction::Take => todo!(),
-        EscrowInstruction::Refund => todo!(),
+        EscrowInstruction::Take => take::process(accounts, [data[0]]),
+        EscrowInstruction::Refund => refund::process(accounts, [data[0]]),
     }
 }
