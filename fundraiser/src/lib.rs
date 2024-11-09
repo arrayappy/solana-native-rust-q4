@@ -22,7 +22,7 @@ pub fn process_instruction(
 ) -> ProgramResult {
     if program_id != &ID {
         return Err(ProgramError::IncorrectProgramId);
-    }   
+    }
 
     let (discriminator, data) = data
         .split_first()

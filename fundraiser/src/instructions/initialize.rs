@@ -1,4 +1,10 @@
-use pinocchio::{account_info::AccountInfo, instruction::{Seed, Signer}, program_error::ProgramError, pubkey::Pubkey, ProgramResult};
+use pinocchio::{
+    account_info::AccountInfo,
+    instruction::{Seed, Signer},
+    program_error::ProgramError,
+    pubkey::Pubkey,
+    ProgramResult,
+};
 use pinocchio_token::instructions::InitilizeAccount3;
 
 pub fn process(accounts: &[AccountInfo], data: &[u8]) -> ProgramResult {
@@ -13,18 +19,22 @@ pub fn process(accounts: &[AccountInfo], data: &[u8]) -> ProgramResult {
     let (bump, data) = data
         .split_first()
         .ok_or(ProgramError::InvalidInstructionData)?;
-    
+
     unsafe {
         let data_ptr = fundraiser.borrow_mut_data_unchecked().as_mut_ptr();
 
         *(data_ptr as *mut Pubkey) = *mint_to_raise.key(); // mint to raise
         *(data_ptr.add(32) as *mut Pubkey) = *(data.as_ptr() as *const Pubkey); // maker
         *(data_ptr.add(64) as *mut u64) = *(data.as_ptr().add(32) as *const u64); // amount to raise
-        *(data_ptr.add(72) as *mut i64) = *(data.as_ptr().add(40) as *const i64); // time ending
+        *(data_ptr.add(72) as *mut i64) = *(data.as_ptr().add(40) as *const i64);
+        // time ending
     }
 
     let bump_bytes = bump.to_le_bytes();
-    let seeds = [Seed::from(fundraiser.key().as_ref()), Seed::from(&bump_bytes)];
+    let seeds = [
+        Seed::from(fundraiser.key().as_ref()),
+        Seed::from(&bump_bytes),
+    ];
     let signer = [Signer::from(&seeds)];
 
     // Initialize token account owned by fundraiser PDA to store contributed tokens

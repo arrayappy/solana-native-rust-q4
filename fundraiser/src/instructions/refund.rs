@@ -1,5 +1,11 @@
+use pinocchio::{
+    account_info::AccountInfo,
+    instruction::{Seed, Signer},
+    program_error::ProgramError,
+    sysvars::{clock::Clock, Sysvar},
+    ProgramResult,
+};
 use pinocchio_token::{instructions::Transfer, state::TokenAccount};
-use pinocchio::{account_info::AccountInfo, instruction::{Seed, Signer}, program_error::ProgramError, sysvars::{clock::Clock, Sysvar}, ProgramResult};
 
 use crate::state::{Contributor, Fundraiser};
 
@@ -22,11 +28,12 @@ pub fn process(accounts: &[AccountInfo], bump: [u8; 1]) -> ProgramResult {
     let signers = [Signer::from(&seeds)];
 
     Transfer {
-      from: vault,
-      to: contributor_ta,
-      authority: vault,
-      amount: Contributor::from_account_info_unchecked(contributor).amount(),
-    }.invoke_signed(&signers)?;
+        from: vault,
+        to: contributor_ta,
+        authority: vault,
+        amount: Contributor::from_account_info_unchecked(contributor).amount(),
+    }
+    .invoke_signed(&signers)?;
 
     Ok(())
 }
