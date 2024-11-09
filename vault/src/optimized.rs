@@ -1,8 +1,7 @@
 use five8_const::decode_32_const;
-use pinocchio::{entrypoint, msg};
 use pinocchio::{
-    account_info::AccountInfo, entrypoint::ProgramResult, program_error::ProgramError,
-    pubkey::Pubkey
+    account_info::AccountInfo, entrypoint, program_error::ProgramError, pubkey::Pubkey,
+    ProgramResult,
 };
 use solana_nostd_sha256::hashv;
 
@@ -24,12 +23,7 @@ pub fn withdraw(_program_id: &Pubkey, accounts: &[AccountInfo], data: &[u8]) -> 
 
     let lamports: u64 = unsafe { *(data.as_ptr() as *const u64) };
     let bump = data[8];
-    let pda = hashv(&[
-        signer.key().as_ref(),
-        &[bump],
-        ID.as_ref(),
-        PDA_MARKER,
-    ]);
+    let pda = hashv(&[signer.key().as_ref(), &[bump], ID.as_ref(), PDA_MARKER]);
 
     assert_eq!(&pda, vault.key().as_ref());
 

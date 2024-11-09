@@ -2627,6 +2627,7 @@ dependencies = [
  "five8_const",
  "mollusk-svm",
  "pinocchio",
+ "solana-logger",
  "solana-nostd-sha256",
  "solana-program",
  "solana-sdk",
