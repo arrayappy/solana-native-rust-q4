@@ -1,10 +1,7 @@
 use five8_const::decode_32_const;
 
 use pinocchio::{
-    account_info::AccountInfo,
-    program_error::ProgramError,
-    pubkey::Pubkey,
-    entrypoint,
+    account_info::AccountInfo, entrypoint, program_error::ProgramError, pubkey::Pubkey,
     ProgramResult,
 };
 

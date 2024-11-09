@@ -1,8 +1,8 @@
 use pinocchio::program_error::ProgramError;
 
 pub mod make;
-pub mod take;
 pub mod refund;
+pub mod take;
 
 #[derive(Debug, Clone, Copy)]
 pub enum EscrowInstruction {
