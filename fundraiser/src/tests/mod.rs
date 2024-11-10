@@ -5,7 +5,7 @@ pub mod initialize;
 pub mod contribute;
 
 #[cfg(test)]
-pub mod checker;
+pub mod check;
 
 #[cfg(test)]
 pub mod refund;
