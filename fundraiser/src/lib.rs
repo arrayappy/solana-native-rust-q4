@@ -9,6 +9,9 @@ mod instructions;
 use instructions::*;
 mod state;
 
+#[cfg(test)]
+mod tests;
+
 const ID: [u8; 32] = decode_32_const("FUNDkZTQdvxPnwSwvHTsgaTy7dppNsPynxSxtWqYLNuF");
 
 pub const PDA_MARKER: &[u8; 21] = b"ProgramDerivedAddress";
