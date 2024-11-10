@@ -7,8 +7,7 @@ use pinocchio::{account_info::AccountInfo, pubkey::Pubkey};
 pub struct Contributor(*const u8);
 
 impl Contributor {
-    #[allow(dead_code)]
-    const LEN: usize = 40;
+    pub const LEN: usize = 40;
 
     #[inline(always)]
     pub fn from_account_info_unchecked(account_info: &AccountInfo) -> Self {

@@ -9,7 +9,7 @@ use pinocchio::{account_info::AccountInfo, pubkey::Pubkey};
 pub struct Fundraiser(*const u8);
 
 impl Fundraiser {
-    const LEN: usize = 80;
+    pub const LEN: usize = 80;
 
     #[inline(always)]
     pub fn from_account_info_unchecked(account_info: &AccountInfo) -> Self {
