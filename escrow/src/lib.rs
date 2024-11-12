@@ -10,6 +10,9 @@ use instructions::*;
 
 pub mod state;
 
+#[cfg(test)]
+mod tests;
+
 const ID: [u8; 32] = decode_32_const("ESCr1yhmVUrX8vRURmZRnGM4QugeFMHvY2ABUa2Cewrh");
 
 entrypoint!(process_instruction);

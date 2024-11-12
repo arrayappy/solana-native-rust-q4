@@ -13,7 +13,7 @@ use pinocchio::{account_info::AccountInfo, pubkey::Pubkey};
 pub struct Escrow(*const u8);
 
 impl Escrow {
-    const LEN: usize = 136;
+    pub const LEN: usize = 136;
 
     // Owner check not required for writes and CPIs (fails if wrong), but required for reads
     #[inline(always)]
