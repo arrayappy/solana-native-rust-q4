@@ -32,7 +32,7 @@ pub fn process_instruction(
 
     match AmmInstruction::try_from(discriminator)? {
         AmmInstruction::Initialize => initialize::process(accounts, data),
-        AmmInstruction::Deposit => todo!(),
+        AmmInstruction::Deposit => deposit::process(accounts, data),
         AmmInstruction::Withdraw => todo!(),
         AmmInstruction::Swap => todo!(),
         AmmInstruction::Lock => todo!(),
