@@ -10,6 +10,9 @@ use instructions::*;
 
 pub mod state;
 
+#[cfg(test)]
+mod tests;
+
 const ID: [u8; 32] = decode_32_const("AMM9y52vqD1QgvX6oG5T1HX11VgCeQDnkEd66SmTSJCC");
 
 entrypoint!(process_instruction);
@@ -28,7 +31,7 @@ pub fn process_instruction(
         .ok_or(ProgramError::InvalidInstructionData)?;
 
     match AmmInstruction::try_from(discriminator)? {
-        AmmInstruction::Initialize => todo!(),
+        AmmInstruction::Initialize => initialize::process(accounts, data),
         AmmInstruction::Deposit => todo!(),
         AmmInstruction::Withdraw => todo!(),
         AmmInstruction::Swap => todo!(),

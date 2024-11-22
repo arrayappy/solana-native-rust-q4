@@ -1,6 +1,6 @@
 use pinocchio::program_error::ProgramError;
 
-// pub mod initialize;
+pub mod initialize;
 // pub mod deposit;
 // pub mod lock;
 // pub mod swap;
@@ -20,7 +20,7 @@ impl TryFrom<&u8> for AmmInstruction {
 
     fn try_from(discriminator: &u8) -> Result<Self, Self::Error> {
         Ok(match discriminator {
-            // 0 => Self::Initialize,
+            0 => Self::Initialize,
             // 1 => Self::Deposit,
             // 2 => Self::Withdraw,
             // 3 => Self::Swap,
