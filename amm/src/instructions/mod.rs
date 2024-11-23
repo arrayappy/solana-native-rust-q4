@@ -3,7 +3,7 @@ use pinocchio::program_error::ProgramError;
 pub mod initialize;
 pub mod deposit;
 pub mod withdraw;
-// pub mod swap;
+pub mod swap;
 // pub mod lock;
 
 #[derive(Debug, Clone, Copy)]
@@ -23,7 +23,7 @@ impl TryFrom<&u8> for AmmInstruction {
             0 => Self::Initialize,
             1 => Self::Deposit,
             2 => Self::Withdraw,
-            // 3 => Self::Swap,
+            3 => Self::Swap,
             // 4 => Self::Lock,
             _ => return Err(ProgramError::InvalidInstructionData),
         })

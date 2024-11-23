@@ -34,7 +34,7 @@ pub fn process_instruction(
         AmmInstruction::Initialize => initialize::process(accounts, data),
         AmmInstruction::Deposit => deposit::process(accounts, data),
         AmmInstruction::Withdraw => withdraw::process(accounts, data),
-        AmmInstruction::Swap => todo!(),
+        AmmInstruction::Swap => swap::process(accounts, data),
         AmmInstruction::Lock => todo!(),
     }
 }

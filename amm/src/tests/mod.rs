@@ -6,3 +6,6 @@ pub mod deposit;
 
 #[cfg(test)]
 pub mod withdraw;
+
+#[cfg(test)]
+pub mod swap;
