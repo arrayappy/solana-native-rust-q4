@@ -9,3 +9,6 @@ pub mod withdraw;
 
 #[cfg(test)]
 pub mod swap;
+
+#[cfg(test)]
+pub mod lock;
