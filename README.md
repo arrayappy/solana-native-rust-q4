@@ -18,6 +18,10 @@ A fundraiser program that allows a user to create a fundraiser, receive funds, w
 
 An AMM program that allows users to deposit, lock, swap and withdraw tokens from liquidity pools.
 
+### SBPF Close
+
+A super efficient Solana account closing script written in sbpf assembly.
+
 ### Notes
 
 - Solana development using Anchor is very convenient and beginner-friendly, but doesn't give us control over program logic at granular level and optimizations.
